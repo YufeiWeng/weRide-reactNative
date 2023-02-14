@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
 import {
   Alert,
-  AsyncStorage,
   Dimensions,
   Image,
   Pressable,
   SafeAreaView,
   Text,
-  TouchableOpacity,
   useWindowDimensions,
   View,
 } from 'react-native';
@@ -15,15 +13,13 @@ import styles from '../Signup/style';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {useForm} from 'react-hook-form';
-import {API_BASE_URL} from '../../constants';
+import {API_BASE_URL, ucsdEmailRegex} from '../../constants';
 import axios from 'axios';
-import {useNavigation} from '@react-navigation/core';
 
 const {width: ScreenWidth} = Dimensions.get('screen');
 const Signup = () => {
   const {height} = useWindowDimensions();
-  const ucsdEmailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@ucsd\.edu$/;
+
   const {
     control,
     handleSubmit,
