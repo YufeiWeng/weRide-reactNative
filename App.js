@@ -4,6 +4,7 @@ import Navigation from './src/navigation/navigation';
 import Verification from './src/screens/Verification';
 import Login from './src/screens/Login';
 import setCustomText from './src/utils/setCustomText';
+import {View} from 'react-native';
 setCustomText();
 const App: () => Node = () => {
   return <Navigation />;

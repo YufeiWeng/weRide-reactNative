@@ -67,6 +67,7 @@ const Navigation = () => {
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
+            cardStyle: {backgroundColor: '#fff'},
           }}>
           {state.userToken == null ? (
             <>

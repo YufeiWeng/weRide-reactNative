@@ -1,25 +1,22 @@
 import React, {useState} from 'react';
 import {
   Alert,
-  Dimensions,
   Image,
+  Linking,
   Pressable,
   SafeAreaView,
   Text,
-  useWindowDimensions,
+  TextInput,
   View,
 } from 'react-native';
 import styles from '../Signup/style';
-import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {useForm} from 'react-hook-form';
 import {API_BASE_URL, ucsdEmailRegex} from '../../constants';
 import axios from 'axios';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
-const {width: ScreenWidth} = Dimensions.get('screen');
 const Signup = () => {
-  const {height} = useWindowDimensions();
-
   const {
     control,
     handleSubmit,
@@ -28,27 +25,15 @@ const Signup = () => {
   // const navigation = useNavigation();
 
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [btnClickable, setBtnClickable] = useState(false);
   const onLoginPress = () => {
     // todo
     // navigation.navigate('Login');
   };
 
-  // const checkIfUserSignedUp = () => {
-  //   const [isUserSignedUp, setIsUserSignedUp] = useState(false);
-  //
-  //   const checkIfUserExists = async () => {
-  //     try {
-  //       const user = await AsyncStorage.getItem('user');
-  //       if (user !== null) {
-  //         setIsUserSignedUp(true);
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  // };
-  // html + css
-  const onSignupPressed = async data => {
+  const onVerifyPressed = async data => {
     if (loading) {
       return;
     }
@@ -70,50 +55,82 @@ const Signup = () => {
 
     setLoading(false);
   };
+
+  const validateEmail = () => {
+    if (!ucsdEmailRegex.test(email)) {
+      setErrorMessage(
+        'This email is invalid, you can only sign up with a valid UCSD email. Please use your valid UCSD email.',
+      );
+      return;
+    }
+
+    // todo: This email already exist. You can try log in with this email
+    setErrorMessage('');
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.title}>Sign Up</Text>
         <Image
           source={require('../../assets/images/round_logo_no_text.png')}
-          style={{width: 100, height: 100}}
+          style={styles.logo}
         />
+        <Text style={styles.title}>Sign Up</Text>
         <Text>If you already have an account register.</Text>
-        <Text>
+        <Text style={{marginBottom: 52}}>
           You can {}
-          <Pressable style={styles.text}>
-            <Text style={styles.loginBtn}>Login Here!</Text>
-          </Pressable>
-        </Text>
-        <View style={{marginBottom: 52}} />
-        <Text style={styles.emailStyle}>Email</Text>
-
-        <CustomInput
-          name="email"
-          placeholder="Enter your UCSD email address"
-          control={control}
-          rules={{
-            required: 'email is required',
-            pattern: {
-              value: ucsdEmailRegex,
-              message:
-                'This email is invalid, you can only sign up with a valid UCSD email. Please use your valid UCSD email to sign up',
-            },
-          }}
-        />
-        <Text style={styles.errorText}>
-          This email already exist. You can try log in with this email
+          <Text style={styles.loginBtn} onPress={onLoginPress}>
+            Login Here!
+          </Text>
         </Text>
 
-        <CustomButton
-          style={styles.button}
-          text={loading ? 'Loading...' : 'Verify email'}
-          onPress={handleSubmit(onSignupPressed)}
-        />
+        <View style={styles.form}>
+          <Text style={styles.inputTag}>Email</Text>
+          <View
+            style={[
+              styles.inputContainer,
+              errorMessage ? {borderColor: '#FF432A'} : {borderColor: 'black'},
+            ]}>
+            <Fontisto name={'email'} style={{marginRight: 8}} size={16} />
+            <TextInput
+              onChangeText={text => setEmail(text)}
+              value={email}
+              autoCorrect={false}
+              autoCapitalize={'none'}
+              inputMode={'email'}
+              onBlur={validateEmail}
+              placeholder="Enter your UCSD email address"
+              style={{padding: 2, fontSize: 16}}
+            />
+          </View>
+          {errorMessage ? (
+            <Text style={styles.errorText}>{errorMessage}</Text>
+          ) : null}
+        </View>
 
-        <Text style={styles.signUpTips}>
-          By signing up, you're agreeing to our Terms & Conditions and Privacy
-          Policy
+        <Pressable
+          onPress={onVerifyPressed}
+          disabled={btnClickable}
+          style={[
+            styles.btn,
+            btnClickable
+              ? {backgroundColor: '#172B54'}
+              : {backgroundColor: '#CACFDA'},
+          ]}>
+          <Text style={styles.btnText}>Verify Email</Text>
+        </Pressable>
+
+        {/*todo: update hyperlink url*/}
+        <Text style={styles.agreement}>
+          By signing up, you're agreeing to our
+          <Text onPress={() => Linking.openURL()} style={styles.hyperlink}>
+            Terms & Conditions{}
+          </Text>
+          and
+          <Text onPress={() => Linking.openURL()} style={styles.hyperlink}>
+            {}
+            Privacy Policy
+          </Text>
         </Text>
       </View>
     </SafeAreaView>
