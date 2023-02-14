@@ -10,7 +10,6 @@ import {
   View,
 } from 'react-native';
 import styles from '../Signup/style';
-import CustomButton from '../../components/CustomButton';
 import {useForm} from 'react-hook-form';
 import {API_BASE_URL, ucsdEmailRegex} from '../../constants';
 import axios from 'axios';
@@ -124,11 +123,11 @@ const Signup = () => {
         <Text style={styles.agreement}>
           By signing up, you're agreeing to our
           <Text onPress={() => Linking.openURL()} style={styles.hyperlink}>
-            Terms & Conditions{}
+            Terms & Conditions{' '}
           </Text>
           and
           <Text onPress={() => Linking.openURL()} style={styles.hyperlink}>
-            {}
+            {' '}
             Privacy Policy
           </Text>
         </Text>
