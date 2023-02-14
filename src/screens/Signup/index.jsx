@@ -1,5 +1,16 @@
 import React, {useState} from 'react';
-import {AsyncStorage, TouchableOpacity,Text,Image,Dimensions, SafeAreaView, ScrollView, View,useWindowDimensions} from 'react-native';
+import {
+  Alert,
+  AsyncStorage,
+  Dimensions,
+  Image,
+  Pressable,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import styles from '../Signup/style';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
@@ -8,18 +19,8 @@ import {API_BASE_URL} from '../../constants';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/core';
 
-import {Logo} from '../../../assets/images/uber.png';
-
 const {width: ScreenWidth} = Dimensions.get('screen');
 const Signup = () => {
-  const PressableTerms = ({ text, onPress }) => {
-    return (
-      <TouchableOpacity onPress={onPress}>
-        <Text style={styles.text}>{text}</Text>
-      </TouchableOpacity>
-    );
-  };
-
   const {height} = useWindowDimensions();
   const ucsdEmailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@ucsd\.edu$/;
@@ -28,30 +29,29 @@ const Signup = () => {
     handleSubmit,
     formState: {errors},
   } = useForm();
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const [loading, setLoading] = useState(false);
   const onLoginPress = () => {
-    navigation.navigate('Login');
+    // todo
+    // navigation.navigate('Login');
   };
 
-
-
-
-  const checkIfUserSignedUp = () =>{
-    const [isUserSignedUp, setIsUserSignedUp] = useState(false);
-
-    const checkIfUserExists = async () => {
-      try {
-        const user = await AsyncStorage.getItem('user');
-        if (user !== null) {
-          setIsUserSignedUp(true);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  }
+  // const checkIfUserSignedUp = () => {
+  //   const [isUserSignedUp, setIsUserSignedUp] = useState(false);
+  //
+  //   const checkIfUserExists = async () => {
+  //     try {
+  //       const user = await AsyncStorage.getItem('user');
+  //       if (user !== null) {
+  //         setIsUserSignedUp(true);
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  // };
+  // html + css
   const onSignupPressed = async data => {
     if (loading) {
       return;
@@ -67,82 +67,59 @@ const Signup = () => {
         password: data.password,
       });
       console.log(response.data);
-      navigation.navigate('Verification');
+      // navigation.navigate('Verification');
     } catch (e) {
       Alert.alert('Oops', e.response.data);
     }
 
     setLoading(false);
   };
-
   return (
     <SafeAreaView>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.root}>
-          <Image source={require('../../../assets/images/uber.png')} style ={[styles.logo,{height:height * 0.3}]} resizeMode="contain"/>
-          <Text style={styles.title}>Sign Up</Text>
-          <Text style={styles.signUpTips}>If you already have an account register.</Text>
-          <TouchableOpacity style={styles.button} onPress={onLoginPress}>
-            <Text style={styles.buttonText}>Login Here!</Text>
-          </TouchableOpacity>
-          
-          
-          {/* <CustomButton     #login in button
-            text="Already have a account? Log in"
-            onPress={onLoginPress}
-            type="TERTIARY"
-          /> */}
+      <View style={styles.root}>
+        <Text style={styles.title}>Sign Up</Text>
+        <Image
+          source={require('../../assets/images/round_logo_no_text.png')}
+          style={{width: 100, height: 100}}
+        />
+        <Text>If you already have an account register.</Text>
+        <Text>
+          You can {}
+          <Pressable style={styles.text}>
+            <Text style={styles.loginBtn}>Login Here!</Text>
+          </Pressable>
+        </Text>
+        <View style={{marginBottom: 52}} />
+        <Text style={styles.emailStyle}>Email</Text>
 
-          <Text style={styles.signUpTips}>Email</Text> 
+        <CustomInput
+          name="email"
+          placeholder="Enter your UCSD email address"
+          control={control}
+          rules={{
+            required: 'email is required',
+            pattern: {
+              value: ucsdEmailRegex,
+              message:
+                'This email is invalid, you can only sign up with a valid UCSD email. Please use your valid UCSD email to sign up',
+            },
+          }}
+        />
+        <Text style={styles.errorText}>
+          This email already exist. You can try log in with this email
+        </Text>
 
-          <CustomInput
-            name="email"
-            placeholder="Enter your UCSD email address"
-            control={control}
-            rules={{
-              required: 'email is required',
-              pattern: {
-                value: ucsdEmailRegex,
-                message: 'This email is invalid, you can only sign up with a valid UCSD email. Please use your valid UCSD email to sign up',
-              },
-            }}
-          />
-          <Text style={styles.errorText}>This email already exist. You can try log in with this email</Text>
-          
+        <CustomButton
+          style={styles.button}
+          text={loading ? 'Loading...' : 'Verify email'}
+          onPress={handleSubmit(onSignupPressed)}
+        />
 
-
-          {/* <CustomInput
-            name="password"
-            placeholder="Password"
-            secureTextEntry
-            control={control}
-            rules={{
-              required: 'Password is required',
-              minLength: {
-                value: 3,
-                message: 'Password should be minimum 3 characters long',
-              },
-            }}
-          /> */}
-
-          <CustomButton
-            style = {styles.button}
-            text={loading ? 'Loading...' : 'Verify email'}
-            onPress={handleSubmit(onSignupPressed)}
-          />
-          {/* <Text style={styles.textContainer}>
-            By signing up, you're agreeing to our 
-            <PressableTerms
-              text=" Terms & Conditions and Privacy" 
-              onPress={onPress} 
-            />
-          </Text> */}
-          <Text style={styles.signUpTips}>By signing up, you're agreeeing to our Terms & Conditions and Privacy Policy</Text> 
-
-
-          
-        </View>
-      </ScrollView>
+        <Text style={styles.signUpTips}>
+          By signing up, you're agreeing to our Terms & Conditions and Privacy
+          Policy
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };

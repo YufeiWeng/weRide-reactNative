@@ -6,13 +6,12 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {useNavigation} from '@react-navigation/core';
 import {AuthContext} from '../../navigation/navigation';
+import {ucsdEmailRegex} from "../../constants";
 
 const {width: ScreenWidth} = Dimensions.get('screen');
 const Index = () => {
   const auth = React.useContext(AuthContext);
 
-  const ucsdEmailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@ucsd\.edu$/;
   const {
     control,
     handleSubmit,
