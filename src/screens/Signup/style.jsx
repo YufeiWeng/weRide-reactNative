@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     color: '#FE8E67',
     fontWeight: '700',
   },
-
   buttonText: {
     fontSize: 100,
     color: 'orange',
@@ -42,9 +41,8 @@ const styles = StyleSheet.create({
   },
   btn: {
     position: 'absolute',
-    height: 53,
+    top: 550,
     left: 38,
-    top: 551,
   },
 });
 

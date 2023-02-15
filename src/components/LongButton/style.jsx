@@ -6,6 +6,7 @@ const style = StyleSheet.create({
     padding: 15,
     marginVertical: 5,
     alignItems: 'center',
+    height: 53,
     borderRadius: 32,
     marginBottom: 20,
     // box shadow

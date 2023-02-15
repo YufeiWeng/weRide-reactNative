@@ -15,6 +15,7 @@ const FourDigitInput = ({onValueChange, errorMessage}) => {
     } else if (!value && index > 0) {
       inputRefs[index - 1].current.focus();
     }
+    // todo: when typed all 4 digits, submit automatically
   };
 
   useEffect(() => {

@@ -10,6 +10,7 @@ import {API_BASE_URL} from '../constants';
 import axios from 'axios';
 import {Alert} from 'react-native';
 import {authInit, authReducer} from '../reducers/auth';
+import VerificationSuccess from '../screens/VerificationSuccess';
 
 const Stack = createNativeStackNavigator();
 export const AuthContext = React.createContext();
@@ -71,6 +72,10 @@ const Navigation = () => {
           }}>
           {state.userToken == null ? (
             <>
+              <Stack.Screen
+                name="VerificationSuccess"
+                component={VerificationSuccess}
+              />
               <Stack.Screen name="Signup" component={Signup} />
               <Stack.Screen name="Login" component={Login} />
               <Stack.Screen name="Verification" component={Verification} />

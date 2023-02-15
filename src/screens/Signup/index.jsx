@@ -81,6 +81,7 @@ const Signup = () => {
           onPress={onVerifyPressed}
           disabled={btnDisabled}
           text={'Verify Email'}
+          otherStyle={styles.btn}
         />
 
         {/*todo: update hyperlink url*/}
