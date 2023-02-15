@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {SCREEN_WIDTH} from '../../constants';
+
 const styles = StyleSheet.create({
   root: {
     alignItems: 'flex-start',
@@ -22,22 +22,11 @@ const styles = StyleSheet.create({
     color: '#FE8E67',
     fontWeight: '700',
   },
-  form: {
-    marginBottom: 100,
-  },
+
   buttonText: {
     fontSize: 100,
     color: 'orange',
     lineHeight: 50,
-  },
-  errorText: {
-    fontSize: 10,
-    color: '#FF432A',
-  },
-  inputTag: {
-    fontSize: 13,
-    fontWeight: '500',
-    marginBottom: 10,
   },
   agreement: {
     fontSize: 12,
@@ -51,35 +40,7 @@ const styles = StyleSheet.create({
   hyperlink: {
     color: '#4A73DA',
   },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: 2,
-    width: SCREEN_WIDTH * 0.75,
-    padding: 7,
-    marginBottom: 4,
-  },
-  btnText: {
-    fontSize: 17,
-    color: '#fff',
-  },
   btn: {
-    width: '100%',
-    padding: 15,
-    marginVertical: 5,
-    alignItems: 'center',
-    borderRadius: 32,
-    marginBottom: 20,
-    // box shadow
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 26,
-    elevation: 5, // for Android
-
     position: 'absolute',
     height: 53,
     left: 38,
