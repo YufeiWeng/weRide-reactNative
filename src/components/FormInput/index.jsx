@@ -3,6 +3,22 @@ import {Text, TextInput, View} from 'react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import style from './style';
 
+/**
+ * component for a complete form input
+ * @component
+ * @param {string} tag the question tag
+ * @param {Object} icon
+ * @param onChangeText
+ * @param errorMessage
+ * @param value
+ * @param autoCorrect
+ * @param autoCapitalize
+ * @param inputMode
+ * @param onBlur
+ * @param placeholder
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const FormInput = ({
   tag,
   icon,

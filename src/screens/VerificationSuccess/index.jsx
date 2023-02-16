@@ -8,7 +8,7 @@ const VerificationSuccess = () => {
     <View style={styles.root}>
       <Text style={styles.title}>Email verified!</Text>
       <Text>You can proceed to set your password</Text>
-      // todo: navigate to home page
+      {/*todo: navigate to home page*/}
       <LongBottom text={'Continue'} onPress={() => {}} />
     </View>
   );

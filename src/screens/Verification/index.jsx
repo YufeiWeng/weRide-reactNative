@@ -14,21 +14,8 @@ const Verification = () => {
   const [resendBtnDisabled, setResendBtnDisabled] = useState(false);
   const [countdown, setCountdown] = useState(60);
   const navigation = useNavigation();
-  const onVerifyPressed = async () => {
-    if (code.length !== 4) {
-      return;
-    }
-
-    try {
-      const url = API_BASE_URL + '/user-service/verification/';
-      const response = await axios.post(url, {
-        //TODO: add email address
-        code: code,
-      });
-      // TODO: navigation to Home page
-    } catch (e) {
-      Alert.alert('Oops', e.response.data);
-    }
+  const onVerifyPressed = () => {
+    navigation.navigate('VerificationSuccess');
   };
 
   const onResendPressed = async () => {
@@ -75,7 +62,7 @@ const Verification = () => {
           errorMessage={errorMessage}
         />
         <LongBottom
-          onPres={onVerifyPressed}
+          onPress={onVerifyPressed}
           text={'Submit'}
           otherStyle={styles.submitBtn}
         />

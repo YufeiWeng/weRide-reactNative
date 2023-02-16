@@ -72,13 +72,13 @@ const Navigation = () => {
           }}>
           {state.userToken == null ? (
             <>
+              <Stack.Screen name="Signup" component={Signup} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Verification" component={Verification} />
               <Stack.Screen
                 name="VerificationSuccess"
                 component={VerificationSuccess}
               />
-              <Stack.Screen name="Signup" component={Signup} />
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="Verification" component={Verification} />
             </>
           ) : (
             <>
