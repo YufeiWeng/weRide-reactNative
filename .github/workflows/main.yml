@@ -11,7 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: node setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
