@@ -8,6 +8,4 @@ jobs:
     - name: JSDoc Action
       uses: andstor/jsdoc-action@v1.2.1
       with:
-        source_dir: ../../src
-        recurse: true
-        output_dir: ./public
+        config_file: ./jsdoc.json
