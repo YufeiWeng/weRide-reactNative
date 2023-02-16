@@ -16,5 +16,7 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./src
-          output_dir: ./out
-          config_file: jsdoc.json
+          output_dir: ./public
+          config_file: ./jsdoc.json
+          template: minami
+          front_page: README.md
