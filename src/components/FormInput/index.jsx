@@ -48,6 +48,7 @@ const FormInput = ({
           inputMode={inputMode}
           onBlur={onBlur}
           placeholder={placeholder}
+          placeholderTextColor={"#888181"}
           style={{padding: 2, fontSize: 16}}
         />
       </View>

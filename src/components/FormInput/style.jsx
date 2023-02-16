@@ -9,6 +9,7 @@ const style = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
     marginBottom: 10,
+    color: 'black',
   },
   inputContainer: {
     flexDirection: 'row',

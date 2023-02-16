@@ -52,8 +52,8 @@ const Signup = () => {
       <View style={styles.root}>
         <Image source={logoUrl} style={styles.logo} />
         <Text style={styles.title}>Sign Up</Text>
-        <Text>If you already have an account register.</Text>
-        <Text style={{marginBottom: 52}}>
+        <Text style={styles.baseText}>If you already have an account register.</Text>
+        <Text style={{marginBottom: 52, color:'#000000'}} >
           You can {}
           <Text
             style={styles.loginBtn}
@@ -66,7 +66,7 @@ const Signup = () => {
 
         <FormInput
           tag={'Email'}
-          icon={<Fontisto name={'email'} style={{marginRight: 8}} size={16} />}
+          icon={<Fontisto name={'email'} color={'#000000'} style={{marginRight: 8}} size={16} />}
           onChangeText={setEmail}
           errorMessage={errorMessage}
           value={email}

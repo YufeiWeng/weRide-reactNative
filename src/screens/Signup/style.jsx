@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
     top: 550,
     left: 38,
   },
+  baseText: {
+    color: '#000000'
+  },
 });
 
 export default styles;
