@@ -1,11 +1,22 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: GitHub pages
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  Explore-GitHub-Actions:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: JSDoc Action
-      uses: andstor/jsdoc-action@v1.2.1
-      with:
-        config_file: ./jsdoc.json
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./public
+          config_file: ./jsdoc.json
+          template: minami
+          front_page: README.md
