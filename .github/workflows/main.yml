@@ -7,5 +7,3 @@ jobs:
     steps:
     - name: JSDoc Action
       uses: andstor/jsdoc-action@v1.2.1
-      with:
-        config_file: ./jsdoc.json
