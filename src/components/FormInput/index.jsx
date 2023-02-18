@@ -7,15 +7,15 @@ import style from './style';
  * component for a complete form input
  * @component
  * @param {string} tag the question tag
- * @param {Object} icon
- * @param onChangeText
- * @param errorMessage
- * @param value
+ * @param {Object} icon the icon 
+ * @param {string} onChangeText
+ * @param {string} errorMessage the error message that may appear below the layout
+ * @param {string} value
  * @param autoCorrect
  * @param autoCapitalize
  * @param inputMode
  * @param onBlur
- * @param placeholder
+ * @param placeholder the content that soon will appear in the layout
  * @returns {JSX.Element}
  * @constructor
  */
@@ -49,7 +49,7 @@ const FormInput = ({
           onBlur={onBlur}
           placeholder={placeholder}
           placeholderTextColor={"#888181"}
-          style={{padding: 2, fontSize: 16}}
+          style={{padding: 2, fontSize: 16, color: 'black'}}
         />
       </View>
       {errorMessage ? (

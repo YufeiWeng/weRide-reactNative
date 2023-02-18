@@ -69,7 +69,7 @@ const Signup = () => {
           icon={<Fontisto name={'email'} color={'#000000'} style={{marginRight: 8}} size={16} />}
           onChangeText={setEmail}
           errorMessage={errorMessage}
-          value={email}
+          value={<email style={styles.baseText}/>}
           autoCorrect={false}
           autoCapitalize={'none'}
           inputMode={'email'}
