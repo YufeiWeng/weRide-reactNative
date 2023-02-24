@@ -15,7 +15,7 @@ const Verification = () => {
   const [countdown, setCountdown] = useState(60);
   const navigation = useNavigation();
   const onVerifyPressed = () => {
-    navigation.navigate('VerificationSuccess');
+    navigation.navigate('Createpw');
   };
 
   const onResendPressed = async () => {
@@ -55,7 +55,7 @@ const Verification = () => {
           onPress={() => navigation.navigate('Signup')}
         />
         <Text style={styles.title}>Verification Code</Text>
-        <Text>Enter code that we have sent to your email your...@ucsd.edu</Text>
+        <Text style={{color: 'black'}}>Enter code that we have sent to your email your...@ucsd.edu</Text>
 
         <FourDigitInput
           onValueChange={handleValueChange}

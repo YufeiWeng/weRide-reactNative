@@ -8,14 +8,14 @@ import style from './style';
  * @component
  * @param {string} tag the question tag
  * @param {Object} icon the icon 
- * @param {string} onChangeText
- * @param {string} errorMessage the error message that may appear below the layout
- * @param {string} value
- * @param autoCorrect
- * @param autoCapitalize
- * @param inputMode
- * @param onBlur
- * @param placeholder the content that soon will appear in the layout
+ * @param {Function} onChangeText prop that takes a function to be called every time the text changed
+ * @param {Text} errorMessage the error message that may appear below the layout
+ * @param {Text} value the content that the user types
+ * @param {boolean} autoCorrect if false, disables auto-correct
+ * @param {Enumerator} autoCapitalize certain characters that automatically capitalize
+ * @param {Enumerator} inputMode works like the inputmode attribute in HTML, it determines which keyboard to open, e.g. numeric
+ * @param {Function} onBlur callback that is called when the text input is blurred.
+ * @param {Text} placeholder the initial value that will change when the user starts typing
  * @returns {JSX.Element}
  * @constructor
  */

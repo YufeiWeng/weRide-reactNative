@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 38,
     fontWeight: '600',
     marginBottom: 20,
+    color: 'black',
   },
   submitBtn: {
     position: 'absolute',
