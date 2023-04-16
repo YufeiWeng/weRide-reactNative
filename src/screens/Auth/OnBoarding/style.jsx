@@ -1,23 +1,27 @@
 import {StyleSheet} from 'react-native';
-import { Dimensions} from 'react-native';
+import {Dimensions} from 'react-native';
+
 const {width, height} = Dimensions.get('window');
 const COLORS = {primary: '#F5F5F5', titleColor: '#172B4D'};
 
 const styles = StyleSheet.create({
+  slide: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+  },
   root: {
     alignItems: 'center',
     padding: 20,
+    marginBottom: 700,
   },
   logo: {
-    alignItems: 'center',
     width: 50,
     height: 64,
-    textAlign: 'center',
     top: height * 0.04,
-  },
-  fl: {
-    position: 'absolute',
-    top: height * 0.15,
+    marginBottom: 65,
   },
   subtitle: {
     color: COLORS.titleColor,
@@ -35,18 +39,40 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    height: '100%',
-    width: '100%',
+    width: width * 0.8,
     resizeMode: 'contain',
   },
-  indicator: {
-    height: 2.5,
-    width: 10,
-    backgroundColor: 'grey',
-    marginHorizontal: 3,
-    borderRadius: 2,
-    top: height * 0.73,
-  }
+  skipText: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  swiperContainer: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  inactiveDot: {
+    backgroundColor: '#D9D9D9',
+    width: 13,
+    height: 13,
+    borderRadius: 7,
+    marginLeft: 7,
+    marginRight: 7,
+  },
+  activeDot: {
+    backgroundColor: '#171616',
+    width: 13,
+    height: 13,
+    borderRadius: 7,
+    marginLeft: 7,
+    marginRight: 7,
+  },
+  nextBtn: {
+    position: 'absolute',
+    fontSize: 48,
+    color: '#172B54',
+    top: height * 0.68,
+    right: width * 0.06,
+  },
 });
 
 export default styles;
