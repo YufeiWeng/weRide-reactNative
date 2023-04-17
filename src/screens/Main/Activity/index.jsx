@@ -5,15 +5,58 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {scale} from 'react-native-size-matters';
 import OrderStatusBar from '../../../components/OrderStatusBar';
 import orderStatus from '../../../constants/orderStatus';
-import {activityData} from '../../../constants/data/activityData';
+import {dummyActivityData} from '../../../constants/data/dummyActivityData';
 import ActivityBoardByDate from '../../../components/ActivityBoard';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Activity = () => {
   const [activityStatus, setActivityStatus] = useState(orderStatus.PAST);
-  // todo: the view is out of the screen
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [activityData, setActivityData] = useState([]);
+
+  const tabBarHeight = useBottomTabBarHeight();
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    setIsRefreshing(true);
+    setActivityData(dummyActivityData);
+    setTimeout(function () {
+      // your code here
+    }, 2000);
+    setIsRefreshing(false);
+  };
+
+  const loadMore = () => {
+    setIsRefreshing(true);
+    setPage(page + 1);
+    console.log('load more data');
+    setTimeout(function () {
+      // your code here
+    }, 2000);
+
+    setIsRefreshing(false);
+  };
+
+  const renderFooter = () => {
+    if (isRefreshing) {
+      return null;
+    }
+
+    return (
+      <View>
+        <FontAwesome name={'spinner'} size={16} />
+      </View>
+    );
+  };
+
   return (
-    <SafeAreaView>
-      <View style={styles.root}>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{...styles.root, marginBottom: tabBarHeight + 50}}>
         <View style={styles.header}>
           <Text style={styles.title}>Activity</Text>
           <Ionicons
@@ -38,11 +81,12 @@ const Activity = () => {
             />
           )}
           key={item => item.date}
-          // onRefresh={fetchData}
-          // refreshing={loading}
-          // onEndReached={loadMore}
-          // onEndReachedThreshold={0.5}
-          // ListFooterComponent={renderFooter}
+          showsVerticalScrollIndicator={false}
+          onRefresh={fetchData}
+          refreshing={isRefreshing}
+          onEndReached={loadMore}
+          onEndReachedThreshold={0.1}
+          ListFooterComponent={renderFooter}
         />
       </View>
     </SafeAreaView>

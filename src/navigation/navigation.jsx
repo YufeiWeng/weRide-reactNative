@@ -18,45 +18,51 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../constants/colors';
 import Activity from '../screens/Main/Activity';
+import TripDetails from '../screens/Main/TripDetails';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export const AuthContext = React.createContext();
+const ActivityNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="ActivityList" component={Activity} />
+      <Stack.Screen name="TripDetails" component={TripDetails} />
+    </Stack.Navigator>
+  );
+};
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          switch (route.name) {
+            case 'Home':
+              return <Octicons name="home" size={size} color={color} />;
+            case 'Activity':
+              return (
+                <Ionicons name="ios-list-outline" size={size} color={color} />
+              );
+            case 'Profile':
+              return (
+                <Ionicons name="ios-person-outline" size={size} color={color} />
+              );
+          }
+        },
+        tabBarInactiveTintColor: Colors.TAB_INACTIVE,
+        tabBarActiveTintColor: Colors.TAB_ACTIVE,
+        headerShown: false,
+      })}>
+      <Tab.Screen name="Home" component={Signup} />
+      <Tab.Screen name="Activity" component={ActivityNavigator} />
+      <Tab.Screen name="Profile" component={Login} />
+    </Tab.Navigator>
+  );
+};
+
 const Navigation = () => {
   let authContext = null;
 
-  const TabNavigator = () => {
-    return (
-      <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            switch (route.name) {
-              case 'Home':
-                return <Octicons name="home" size={size} color={color} />;
-              case 'Activity':
-                return (
-                  <Ionicons name="ios-list-outline" size={size} color={color} />
-                );
-              case 'Profile':
-                return (
-                  <Ionicons
-                    name="ios-person-outline"
-                    size={size}
-                    color={color}
-                  />
-                );
-            }
-          },
-          tabBarInactiveTintColor: Colors.TAB_INACTIVE,
-          tabBarActiveTintColor: Colors.TAB_ACTIVE,
-          headerShown: false,
-        })}>
-        <Tab.Screen name="Home" component={Signup} />
-        <Tab.Screen name="Activity" component={Activity} />
-        <Tab.Screen name="Profile" component={Login} />
-      </Tab.Navigator>
-    );
-  };
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>

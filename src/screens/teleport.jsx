@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import VerificationSuccess from './Auth/VerificationSuccess';
 

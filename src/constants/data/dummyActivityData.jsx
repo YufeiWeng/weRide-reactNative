@@ -1,4 +1,4 @@
-export const activityData = [
+export const dummyActivityData = [
   {
     date: 'March, 1',
     activities: [
