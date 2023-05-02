@@ -1,18 +1,22 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet,Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/core';
 
-function CardChoice(props) {
-  return (
-    <View style={styles.boxContainer}>
-      <View style={styles.box}>
-        <Text style={styles.text}>{props.text}</Text>
-        <View style={styles.image}>
-          <Image source={props.image} style={styles.imageIcon} />
+function CardChoice({text,imageurl}) {
+    const navigation = useNavigation();
+    return (
+      <Pressable onPress={() => navigation.navigate('CardInfo')}>
+        <View style={styles.boxContainer}>
+          <View style={styles.box}>
+            <Text style={styles.text}>{text}</Text>
+            <View style={styles.image}>
+              <Image source={imageurl} style={styles.imageIcon} />
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
-  );
-}
+      </Pressable>
+    );
+  }
 export default CardChoice;
 
 const styles = StyleSheet.create({

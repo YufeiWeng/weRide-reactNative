@@ -1,16 +1,13 @@
 import React from 'react';
 import {
   SafeAreaView,
-  Text,
   View,
-  TouchableOpacity,
-  Ionicons,
 } from 'react-native';
 import styles from './style';
 import {useNavigation} from '@react-navigation/core';
-import InputCardBox from '../../components/InputCardBox/';
-import LongBottom from '../../components/LongButton';
-import LeftArrow from '../../components/LeftArrow';
+import InputCardBox from '../../../components/InputCardBox/';
+import LongBottom from '../../../components/LongButton';
+import LeftArrow from '../../../components/LeftArrow';
 
 const CardInfo = () => {
   const navigation = useNavigation();
@@ -18,7 +15,7 @@ const CardInfo = () => {
     <SafeAreaView>
       <View>
         <View style={styles.container}>
-          <LeftArrow screen={'Home'} title={'Card Info'} />
+          <LeftArrow screen={'Login'} title={'Card Info'} />
           <InputCardBox text="Card Number" width={342} />
           <InputCardBox text="Name" width={342} />
           <View style={styles.shortbox}>

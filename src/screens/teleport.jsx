@@ -22,6 +22,8 @@ const Teleport = () => {
       </Text>
       <Text onPress={() => navigation.navigate('OnBoarding')}>OnBoarding</Text>
       <Text onPress={() => navigation.navigate('Main')}>main</Text>
+      <Text onPress={() => navigation.navigate('CardInfo')}>CardInfo</Text>
+      <Text onPress={() => navigation.navigate('CardSelection')}>CardSelection</Text>
     </SafeAreaView>
   );
 };
