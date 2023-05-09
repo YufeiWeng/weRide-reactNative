@@ -41,6 +41,7 @@ const TimeSelection = () => {
         <View style={styles.calendar}>
             
             <Calendar
+                style={{left: width * -0.015}}
                 onDayPress={day => {
                 console.log('selected day', day);
                 }}
@@ -56,7 +57,9 @@ const TimeSelection = () => {
                 source={gray_rec} 
                 style={{flex: 1, left: width * 0.1, height: 30, width: 60}}
                 imageStyle={{ borderRadius: 6}}>
-                    <Text style={{fontSize: 21, fontWeight:500, left: 7}}>{hours}:{min}</Text>
+                    <Text style={{fontSize: 21, fontWeight:500, left: 7}}>
+                        {min < 10 ? [hours, ":", 0, min] : [hours, ":", min]}
+                    </Text>
                 </ImageBackground>
 
                 <SwitchSelector
