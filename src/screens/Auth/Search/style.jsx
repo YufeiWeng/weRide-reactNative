@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   loc: {
-    top: height * 0.04,
-    left: width * 0.02
+    top: height * 0.042,
+    left: width * 0.01
   },
   locations: {
     marginTop: 10,
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     flexDirection:"row",
   },
   grayloc: {
-    left: width * -0.05
+    left: width * -0.05,
+    top: 5
   }
 });
 

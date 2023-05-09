@@ -6,47 +6,21 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
 import SwitchSelector from "react-native-switch-selector";
+import {useState} from 'react';
+import {Calendar, CalendarList, Agend} from 'react-native-calendars';
 
-const DateRow = () => {
-    return(
-        <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginBottom: 60,
-        }}>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-            <Text>date</Text>
-        </View>
-    </View>
-    )
-}
 
 const TimeSelection = () => {
   const gray_rec = require('../../../assets/images/time_selection/grayrec.png');
   const options = [
     { label: "AM", value: "1" },
     { label: "PM", value: "2" },
-   
   ];
+  
+  var hours = new Date().getHours() - 12; //Current Hours
+  var min = new Date().getMinutes(); //Current Minutes
+  
+    
   return (
     <SafeAreaView>
         <View style={styles.root}>
@@ -65,43 +39,14 @@ const TimeSelection = () => {
         
         
         <View style={styles.calendar}>
-            <View style={{marginBottom: 20}}>
-                <Text>June 2020</Text>
-            </View>
-            <View style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginBottom: 25
-                }}>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>SUN</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>MON</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>TUE</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>WED</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>THU</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>FRI</Text>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', height: 50}}>
-                    <Text style={{color: '#808080'}}>SAT</Text>
-                </View>
-            </View>
-            <DateRow></DateRow>
-            <DateRow></DateRow>
-            <DateRow></DateRow>
-            <DateRow></DateRow>
-            <DateRow></DateRow>
-            <View style={{flexDirection:"row", marginTop: -20}}>
+            
+            <Calendar
+                onDayPress={day => {
+                console.log('selected day', day);
+                }}
+            />
+            
+            <View style={{flexDirection:"row", marginTop: 10}}>
 
                 <View style={{flex:1}}>
                     <Text style={{fontSize: 20, fontWeight:500}}>Time</Text>
@@ -111,7 +56,7 @@ const TimeSelection = () => {
                 source={gray_rec} 
                 style={{flex: 1, left: width * 0.1, height: 30, width: 60}}
                 imageStyle={{ borderRadius: 6}}>
-                    <Text style={{fontSize: 21, fontWeight:500, left: 7}}>11:30</Text>
+                    <Text style={{fontSize: 21, fontWeight:500, left: 7}}>{hours}:{min}</Text>
                 </ImageBackground>
 
                 <SwitchSelector
