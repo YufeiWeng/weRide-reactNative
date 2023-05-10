@@ -18,8 +18,9 @@ const App = () => {
   //   </SafeAreaView>
   // );
   return <Navigation />;
-  // return <Verification />;
-  // return <Login />;
+  
+  //return <Verification />;
+  //return <Login />;
   // return <Activity />;
 };
 

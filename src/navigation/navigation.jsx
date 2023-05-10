@@ -6,7 +6,8 @@ import Signup from '../screens/Auth/Signup';
 import Verification from '../screens/Auth/Verification';
 import RoleSelect from '../screens/Auth/RoleSelect';
 import ForgetPassword from '../screens/Auth/ForgetPassword';
-import VerificationSuccess from '../screens/Auth/VerificationSuccess';
+import VerificationSuccess from '../screens/Auth/VerificationSuccess/index';
+import Search from '../screens/Auth/Search/index';
 import CreatePassword from '../screens/Auth/CreatePassword';
 import OnBoarding from '../screens/Auth/OnBoarding/index';
 import GetStarted from '../screens/Auth/GetStarted';
@@ -19,6 +20,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../constants/colors';
 import Activity from '../screens/Main/Activity';
 import TripDetails from '../screens/Main/TripDetails';
+import TimeSelection from '../screens/Auth/TimeSelection/index';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -87,6 +90,14 @@ const Navigation = () => {
           <Stack.Screen
             name="VerificationSuccess"
             component={VerificationSuccess}
+          />
+          <Stack.Screen
+            name="Search"
+            component={Search}
+          />
+          <Stack.Screen
+            name="TimeSelection"
+            component={TimeSelection}
           />
           <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
