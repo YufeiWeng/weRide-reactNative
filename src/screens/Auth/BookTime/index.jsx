@@ -44,7 +44,7 @@ const BookTime = () => {
         <SafeAreaView>
             <View style={styles.root}>
 
-                <View style={{flexDirection:"row"}}>
+                <View style={styles.header}>
                     <View style={{flex:1}}>
                         <Ionicons
                             name={'arrow-back'}
@@ -73,7 +73,7 @@ const BookTime = () => {
                     onEndReachedThreshold={0.1}
                     style={styles.fList}                
                 />
-                <View style={{top: height * 0.7}}>
+                <View style={styles.footer}>
                     <TouchableOpacity>
                         <Image source={cancel_logo} style={styles.img}/>
                     </TouchableOpacity>
