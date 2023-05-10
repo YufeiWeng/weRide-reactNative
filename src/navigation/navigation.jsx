@@ -6,7 +6,8 @@ import Signup from '../screens/Auth/Signup';
 import Verification from '../screens/Auth/Verification';
 import RoleSelect from '../screens/Auth/RoleSelect';
 import ForgetPassword from '../screens/Auth/ForgetPassword';
-import VerificationSuccess from '../screens/Auth/VerificationSuccess';
+import VerificationSuccess from '../screens/Auth/VerificationSuccess/index';
+import Search from '../screens/Auth/Search/index';
 import CreatePassword from '../screens/Auth/CreatePassword';
 import OnBoarding from '../screens/Auth/OnBoarding/index';
 import GetStarted from '../screens/Auth/GetStarted';
@@ -22,6 +23,8 @@ import TripDetails from '../screens/Main/TripDetails';
 import CardInfo from '../screens/Main/CardInfo';
 import CardSelection from '../screens/Main/CardSelection';
 import Home from '../screens/Main/Home';
+import TimeSelection from '../screens/Auth/TimeSelection/index';
+import BookTime from '../screens/Auth/BookTime/index';
 
 
 const Stack = createNativeStackNavigator();
@@ -94,6 +97,18 @@ const Navigation = () => {
           <Stack.Screen
             name="VerificationSuccess"
             component={VerificationSuccess}
+          />
+          <Stack.Screen
+            name="Search"
+            component={Search}
+          />
+          <Stack.Screen
+            name="TimeSelection"
+            component={TimeSelection}
+          />
+          <Stack.Screen
+            name="BookTime"
+            component={BookTime}
           />
           <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
