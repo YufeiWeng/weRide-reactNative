@@ -21,6 +21,8 @@ import {Colors} from '../constants/colors';
 import Activity from '../screens/Main/Activity';
 import TripDetails from '../screens/Main/TripDetails';
 import TimeSelection from '../screens/Auth/TimeSelection/index';
+import BookTime from '../screens/Auth/BookTime/index';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -98,6 +100,10 @@ const Navigation = () => {
           <Stack.Screen
             name="TimeSelection"
             component={TimeSelection}
+          />
+          <Stack.Screen
+            name="BookTime"
+            component={BookTime}
           />
           <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
