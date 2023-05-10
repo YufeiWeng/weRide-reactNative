@@ -24,6 +24,7 @@ const Teleport = () => {
       <Text onPress={() => navigation.navigate('Main')}>main</Text>
       <Text onPress={() => navigation.navigate('Search')}>Search</Text>
       <Text onPress={() => navigation.navigate('TimeSelection')}>TimeSelection</Text>
+      <Text onPress={() => navigation.navigate('BookTime')}>BookTime</Text>
     </SafeAreaView>
   );
 };
