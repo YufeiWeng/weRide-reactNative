@@ -20,9 +20,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../constants/colors';
 import Activity from '../screens/Main/Activity';
 import TripDetails from '../screens/Main/TripDetails';
+import CardInfo from '../screens/Main/CardInfo';
+import CardSelection from '../screens/Main/CardSelection';
+import Home from '../screens/Main/Home';
 import TimeSelection from '../screens/Auth/TimeSelection/index';
 import BookTime from '../screens/Auth/BookTime/index';
-
 
 
 const Stack = createNativeStackNavigator();
@@ -81,6 +83,9 @@ const Navigation = () => {
           <Stack.Screen name="CreatePassword" component={CreatePassword} />
           <Stack.Screen name="OnBoarding" component={OnBoarding} />
           <Stack.Screen name="GetStarted" component={GetStarted} />
+          <Stack.Screen name="CardInfo" component={CardInfo} />
+          <Stack.Screen name="CardSelection" component={CardSelection} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen
             name="LocationAndNotification"
             component={LocationAndNotification}

@@ -22,6 +22,9 @@ const Teleport = () => {
       </Text>
       <Text onPress={() => navigation.navigate('OnBoarding')}>OnBoarding</Text>
       <Text onPress={() => navigation.navigate('Main')}>main</Text>
+      <Text onPress={() => navigation.navigate('CardInfo')}>CardInfo</Text>
+      <Text onPress={() => navigation.navigate('CardSelection')}>CardSelection</Text>
+      <Text onPress={() => navigation.navigate('Home')}>Home</Text>
       <Text onPress={() => navigation.navigate('Search')}>Search</Text>
       <Text onPress={() => navigation.navigate('TimeSelection')}>TimeSelection</Text>
       <Text onPress={() => navigation.navigate('BookTime')}>BookTime</Text>
