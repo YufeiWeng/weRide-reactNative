@@ -13,6 +13,14 @@ const styles = StyleSheet.create({
     font: 'Poppins',
     fontWeight: 'bold',
   },
+  image: {
+    width: 342,
+    height: 187,
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

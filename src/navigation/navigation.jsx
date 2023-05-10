@@ -21,6 +21,7 @@ import Activity from '../screens/Main/Activity';
 import TripDetails from '../screens/Main/TripDetails';
 import CardInfo from '../screens/Main/CardInfo';
 import CardSelection from '../screens/Main/CardSelection';
+import Home from '../screens/Main/Home';
 
 
 const Stack = createNativeStackNavigator();
@@ -81,6 +82,7 @@ const Navigation = () => {
           <Stack.Screen name="GetStarted" component={GetStarted} />
           <Stack.Screen name="CardInfo" component={CardInfo} />
           <Stack.Screen name="CardSelection" component={CardSelection} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen
             name="LocationAndNotification"
             component={LocationAndNotification}

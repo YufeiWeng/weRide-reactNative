@@ -38,9 +38,9 @@ const UserInfo = ({data}) => {
     </View>
   );
 };
-const TripRow = ({location, time}) => {
+const TripRow1 = ({location, time}) => {
   return (
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer1}>
       <View style={{display: 'flex', flexDirection: 'row'}}>
         <Ionicons name={'location-sharp'} color={'#000'} size={20} />
         <Text style={styles.address}>{location}</Text>
@@ -49,40 +49,54 @@ const TripRow = ({location, time}) => {
     </View>
   );
 };
-
-const ActivityBoard = ({activity}) => {
-  const navigation = useNavigation();
-
-  return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('TripDetails', {activityId: activity.id})
-      }>
-      <View style={styles.activityContainer}>
-        <UserInfo data={activity} />
-        <View style={styles.tripInfo}>
-          <TripRow
-            location={activity.pickupLocation}
-            time={activity.pickupTime}
-          />
-          <TripRow
-            location={activity.dropOffLocation}
-            time={activity.dropOffTime}
-          />
+const TripRow2 = ({location, time}) => {
+    const navigation = useNavigation();
+    return (
+      <View style={styles.rowContainer2}>
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons name={'location-sharp'} color={'#000'} size={20} />
+          <Text style={styles.address}>{location}</Text>
         </View>
+        <View>
+            <LongBottom
+            onPress={() => {
+                navigation.navigate('Home');
+            }} //Todo verify login infos
+            //   disabled={btnDisabled}
+            text={'Login'}
+            otherStyle={styles.btn}
+            />
+        </View>
+        <Text>{time}</Text>
       </View>
-    </TouchableOpacity>
-  );
-};
-const ActivityBoardByDate = ({date, activities}) => {
-  return (
-    <View>
-      <Text style={styles.date}>{date}</Text>
-      {activities.map(x => {
-        return <ActivityBoard activity={x} key={x.id} />;
-      })}
-    </View>
-  );
-};
+      
+    );
+  };
 
-export default ActivityBoardByDate;
+const ActivityBoardWithBottom = (activity) => {
+    const navigation = useNavigation();
+  
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('TripDetails', {activityId: activity.id})
+        }>
+        <View style={styles.activityContainer}>
+          <UserInfo data={activity} />
+          <View style={styles.tripInfo}>
+            <TripRow1
+              location={activity.pickupLocation}
+              time={activity.pickupTime}
+            />
+            <TripRow2
+              location={activity.dropOffLocation}
+              time={activity.dropOffTime}
+            />            
+          </View>
+          
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+export default ActivityBoardWithBottom;

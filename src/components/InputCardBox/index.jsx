@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
-const CardInputBox = ({text, width}) => {
+const CardInputBox = ({placeholder, width}) => {
   return (
     <View style={[styles.boxContainer]}>
       <View style={[styles.box, {width}]}>
-        <TextInput placeholder={text} style={styles.text} />
+        <TextInput placeholder={placeholder} style={styles.text} />
       </View>
     </View>
   );

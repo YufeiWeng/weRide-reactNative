@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     font: 'Poppins',
   },
   image: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
     background: '#4CAF50',
     order: 1,
     flexGrow: 0,
