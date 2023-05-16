@@ -25,7 +25,7 @@ import CardSelection from '../screens/Main/CardSelection';
 import Home from '../screens/Main/Home';
 import TimeSelection from '../screens/Auth/TimeSelection/index';
 import BookTime from '../screens/Auth/BookTime/index';
-
+import Pending from '../screens/Main/Pending/index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,6 +35,7 @@ const ActivityNavigator = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="ActivityList" component={Activity} />
       <Stack.Screen name="TripDetails" component={TripDetails} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };
@@ -60,7 +61,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: Colors.TAB_ACTIVE,
         headerShown: false,
       })}>
-      <Tab.Screen name="Home" component={Signup} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Activity" component={ActivityNavigator} />
       <Tab.Screen name="Profile" component={Login} />
     </Tab.Navigator>
@@ -85,6 +86,7 @@ const Navigation = () => {
           <Stack.Screen name="GetStarted" component={GetStarted} />
           <Stack.Screen name="CardInfo" component={CardInfo} />
           <Stack.Screen name="CardSelection" component={CardSelection} />
+          <Stack.Screen name="Pending" component={Pending} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen
             name="LocationAndNotification"
@@ -98,18 +100,9 @@ const Navigation = () => {
             name="VerificationSuccess"
             component={VerificationSuccess}
           />
-          <Stack.Screen
-            name="Search"
-            component={Search}
-          />
-          <Stack.Screen
-            name="TimeSelection"
-            component={TimeSelection}
-          />
-          <Stack.Screen
-            name="BookTime"
-            component={BookTime}
-          />
+          <Stack.Screen name="Search" component={Search} />
+          <Stack.Screen name="TimeSelection" component={TimeSelection} />
+          <Stack.Screen name="BookTime" component={BookTime} />
           <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
