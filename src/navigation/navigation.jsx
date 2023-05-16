@@ -22,6 +22,8 @@ import Activity from '../screens/Main/Activity';
 import TripDetails from '../screens/Main/TripDetails';
 import TimeSelection from '../screens/Auth/TimeSelection/index';
 import BookTime from '../screens/Auth/BookTime/index';
+import WhereTo from '../screens/Auth/WhereTo/index';
+
 
 
 
@@ -104,6 +106,10 @@ const Navigation = () => {
           <Stack.Screen
             name="BookTime"
             component={BookTime}
+          />
+          <Stack.Screen
+            name="WhereTo"
+            component={WhereTo}
           />
           <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
