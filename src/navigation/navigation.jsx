@@ -26,6 +26,8 @@ import Home from '../screens/Main/Home';
 import TimeSelection from '../screens/Auth/TimeSelection/index';
 import BookTime from '../screens/Auth/BookTime/index';
 import Pending from '../screens/Main/Pending/index';
+import RiderTabNavigator from './RiderTabNavigator';
+import {ScreenName} from '../constants/ScreenName';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,38 +35,10 @@ export const AuthContext = React.createContext();
 const ActivityNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="ActivityList" component={Activity} />
-      <Stack.Screen name="TripDetails" component={TripDetails} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name={ScreenName.ACTIVITY_LIST} component={Activity} />
+      <Stack.Screen name={ScreenName.TRIP_DETAILS} component={TripDetails} />
+      <Stack.Screen name={ScreenName.HOME} component={Home} />
     </Stack.Navigator>
-  );
-};
-const TabNavigator = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          switch (route.name) {
-            case 'Home':
-              return <Octicons name="home" size={size} color={color} />;
-            case 'Activity':
-              return (
-                <Ionicons name="ios-list-outline" size={size} color={color} />
-              );
-            case 'Profile':
-              return (
-                <Ionicons name="ios-person-outline" size={size} color={color} />
-              );
-          }
-        },
-        tabBarInactiveTintColor: Colors.TAB_INACTIVE,
-        tabBarActiveTintColor: Colors.TAB_ACTIVE,
-        headerShown: false,
-      })}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Activity" component={ActivityNavigator} />
-      <Tab.Screen name="Profile" component={Login} />
-    </Tab.Navigator>
   );
 };
 
@@ -76,34 +50,49 @@ const Navigation = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Teleport" component={Teleport} />
-          <Stack.Screen name="Signup" component={Signup} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Verification" component={Verification} />
-          <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
-          <Stack.Screen name="RoleSelect" component={RoleSelect} />
-          <Stack.Screen name="CreatePassword" component={CreatePassword} />
-          <Stack.Screen name="OnBoarding" component={OnBoarding} />
-          <Stack.Screen name="GetStarted" component={GetStarted} />
-          <Stack.Screen name="CardInfo" component={CardInfo} />
-          <Stack.Screen name="CardSelection" component={CardSelection} />
-          <Stack.Screen name="Pending" component={Pending} />
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name={ScreenName.SIGN_UP} component={Signup} />
+          <Stack.Screen name={ScreenName.LOGIN} component={Login} />
           <Stack.Screen
-            name="LocationAndNotification"
+            name={ScreenName.VERIFICATION}
+            component={Verification}
+          />
+          <Stack.Screen
+            name={ScreenName.FORGET_PASSWORD}
+            component={ForgetPassword}
+          />
+          <Stack.Screen name={ScreenName.ROLE_SELECT} component={RoleSelect} />
+          <Stack.Screen
+            name={ScreenName.CREATE_PASSWORD}
+            component={CreatePassword}
+          />
+          <Stack.Screen name={ScreenName.ON_BOARDING} component={OnBoarding} />
+          <Stack.Screen name={ScreenName.GET_STARTED} component={GetStarted} />
+          <Stack.Screen name={ScreenName.CARD_INFO} component={CardInfo} />
+          <Stack.Screen
+            name={ScreenName.CARD_SELECTION}
+            component={CardSelection}
+          />
+          <Stack.Screen name={ScreenName.PENDING} component={Pending} />
+          <Stack.Screen name={ScreenName.HOME} component={Home} />
+          <Stack.Screen
+            name={ScreenName.LOCATION_AND_NOTIFICATION1}
             component={LocationAndNotification}
           />
           <Stack.Screen
-            name="LocationAndNotification1"
+            name={ScreenName.LOCATION_AND_NOTIFICATION2}
             component={LocationAndNotification1}
           />
           <Stack.Screen
-            name="VerificationSuccess"
+            name={ScreenName.VERIFICATION_SUCCESS}
             component={VerificationSuccess}
           />
-          <Stack.Screen name="Search" component={Search} />
-          <Stack.Screen name="TimeSelection" component={TimeSelection} />
-          <Stack.Screen name="BookTime" component={BookTime} />
-          <Stack.Screen name="Main" component={TabNavigator} />
+          <Stack.Screen name={ScreenName.SEARCH} component={Search} />
+          <Stack.Screen
+            name={ScreenName.TIME_SELECTION}
+            component={TimeSelection}
+          />
+          <Stack.Screen name={ScreenName.BOOK_TIME} component={BookTime} />
+          <Stack.Screen name={ScreenName.MAIN} component={RiderTabNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>

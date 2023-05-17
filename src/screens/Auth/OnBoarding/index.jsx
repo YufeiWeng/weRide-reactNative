@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 import {useNavigation} from '@react-navigation/core';
 import styles from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import slides from '../../../constants/onBoardingData';
+import slides from '../../../constants/data/onBoardingData';
 const Slide = ({data}) => {
   const navigation = useNavigation();
 
