@@ -21,6 +21,25 @@ const styles = StyleSheet.create({
     elevation: 2, // This property is only applicable to Android devices
     flex: 1,
   },
+  pendingText: {
+    fontFamily: 'Poppins',
+    fontSize: 18,
+    fontWeight: '700',
+    paddingLeft:"2%"
+    
+    
+  },
+  pendingView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  cancelRideView: {
+    flexDirection: 'column',
+  },
+  cancelRide: {
+    marginTop: '2%',
+    textDecorationLine: 'underline',
+  },
 
   userInfo: {
     height: '30%',
@@ -41,7 +60,7 @@ const styles = StyleSheet.create({
   },
 
   tripInfo: {
-    height: '50%',
+    height: '60%',
     width: '100%',
   },
   buttom: {
@@ -59,6 +78,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  flexContainer1: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop:'5%',
+    paddingLeft:"5%"
   },
 
   lookUp: {

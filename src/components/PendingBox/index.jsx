@@ -1,28 +1,24 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from './style';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/core';
-import LongBottom from '../LongButton';
-const UserInfo = ({data}) => {
+const PendingPart = ({data}) => {
   // const imageUrl = require(data.imageUrl);
   return (
     <View style={styles.userInfo}>
-      <View style={styles.flexContainer}>
+      <View style={styles.flexContainer1}>
         {/*<Image source={imageUrl} style={styles.avatar} />*/}
 
-        <Image
-          source={require('../../assets/images/avatar-temp.png')}
-          style={styles.avatar}
-        />
-        <View>
-          <Text>{data.name}</Text>
-          <Text>
-            <MaterialIcons size={13} name={'star-rate'} color={'#FCBD2A'} />{' '}
-            {data.rating}
-          </Text>
+        <View style={styles.pendingView}>
+          <MaterialCommunityIcons size={25} name={'clock-alert'} color={'#9E0000'} />
+          <Text style={styles.pendingText}>Pending Trip</Text>
+        </View>
+
+        <View style={styles.cancelRideView}>
+          <Text style={styles.cancelRide}>Cancel Ride</Text>
         </View>
       </View>
 
@@ -50,17 +46,17 @@ const TripRow1 = ({location, time}) => {
   );
 };
 
-const ActivityBoardWithBottom = ({activity}) => {
+const PendingBox = ({activity}) => {
   const navigation = useNavigation();
-  console.log(activity);
   // const activity = activity.activities
+  console.log(activity);
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate('TripDetails', {activityId: activity.id})
       }>
       <View style={styles.activityContainer}>
-        <UserInfo data={activity} />
+        <PendingPart data={activity} />
         <View style={styles.tripInfo}>
           <TripRow1
             location={activity.pickupLocation}
@@ -71,20 +67,10 @@ const ActivityBoardWithBottom = ({activity}) => {
             time={activity.dropOffTime}
           />
         </View>
-        <View style={styles.buttom}>
-          <LongBottom
-            onPress={() => {
-              navigation.navigate('Home');
-            }} //Todo verify login infos
-            //   disabled={btnDisabled}
-            text={'Accept Ride'}
-            otherStyle={styles.btn}
-          />
-        </View>
         
       </View>
     </TouchableOpacity>
   );
 };
 
-export default ActivityBoardWithBottom;
+export default PendingBox;

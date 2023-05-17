@@ -6,17 +6,16 @@ import {scale} from 'react-native-size-matters';
 import OrderStatusBar from '../../../components/OrderStatusBar';
 import orderStatus from '../../../constants/orderStatus';
 import {dummyRiderData} from '../../../constants/data/dummyRiderData';
-import ActivityBoardByDate from '../../../components/ActivityBoard';
+import PendingBox from '../../../components/PendingBox';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import ActivityBoardWithBottom from '../../../components/ActivityBoardWithBottom';
 
 const Pending = () => {
   const [activityStatus, setActivityStatus] = useState(orderStatus.PAST);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [activityData, setActivityData] = useState([]);
 
-  //   const tabBarHeight = useBottomTabBarHeight();
+//   const tabBarHeight = useBottomTabBarHeight();
   const [page, setPage] = useState(0);
 
   useEffect(() => {
@@ -54,23 +53,31 @@ const Pending = () => {
       </View>
     );
   };
+  console.log(activityData)
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View style={{...styles.root, marginBottom: 50}}>
-        <View style={styles.icon}>
-          <Ionicons
-              name="ios-chatbubble-ellipses-outline"
-              color={'#B6B6B6'}
-              size={scale(25)}
-            />
-        </View>
+      <View style={{...styles.root, marginBottom: 10 + 50}}>
         <View style={styles.header}>
-          <Text style={styles.title}>Suggested Riders</Text>
+          <Text style={styles.title}>Activity</Text>
+          <Ionicons
+            name="ios-chatbubble-ellipses-outline"
+            color={'#B6B6B6'}
+            size={scale(25)}
+          />
+        </View>
+
+        <View style={styles.activityStatus}>
+          <OrderStatusBar
+            selected={activityStatus}
+            setActivity={setActivityStatus}
+          />
         </View>
         <FlatList
           data={activityData}
           renderItem={({item}) => (
-            <ActivityBoardWithBottom activity={item.activities} />
+            <PendingBox
+              activity={item.activities}
+            />
           )}
           key={item => item.date}
           showsVerticalScrollIndicator={false}
