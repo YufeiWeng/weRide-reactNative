@@ -43,6 +43,8 @@ const Teleport = () => {
       <Text onPress={() => navigation.navigate(ScreenName.PENDING)}>
         Pending
       </Text>
+
+      <Text onPress={() => navigation.navigate('WhereTo')}>WhereTo</Text>
     </SafeAreaView>
   );
 };
