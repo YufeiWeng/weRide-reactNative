@@ -28,6 +28,7 @@ import BookTime from '../screens/Auth/BookTime/index';
 import Pending from '../screens/Main/Pending/index';
 import RiderTabNavigator from './RiderTabNavigator';
 import {ScreenName} from '../constants/ScreenName';
+import WhereTo from '../screens/Auth/WhereTo/index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -93,6 +94,7 @@ const Navigation = () => {
           />
           <Stack.Screen name={ScreenName.BOOK_TIME} component={BookTime} />
           <Stack.Screen name={ScreenName.MAIN} component={RiderTabNavigator} />
+          <Stack.Screen name="WhereTo" component={WhereTo} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
