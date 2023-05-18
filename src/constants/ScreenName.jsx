@@ -22,4 +22,5 @@ export const ScreenName = {
   TRIP_DETAILS: 'TripDetails',
   ACTIVITY: 'Activity',
   Profile: 'Profile',
+  WHERE_TO: 'WhereTo',
 };

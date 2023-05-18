@@ -44,7 +44,9 @@ const Teleport = () => {
         Pending
       </Text>
 
-      <Text onPress={() => navigation.navigate('WhereTo')}>WhereTo</Text>
+      <Text onPress={() => navigation.navigate(ScreenName.WHERE_TO)}>
+        WhereTo
+      </Text>
     </SafeAreaView>
   );
 };
