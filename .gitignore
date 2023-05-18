@@ -64,3 +64,6 @@ yarn-error.log
 
 # API KEY
 .env
+
+
+.vscode
